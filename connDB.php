@@ -1,15 +1,13 @@
 <?php
-    // Opens a connection to the database
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "applicationOrganizer"
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    $dbname = "applicationOrganizer";
+    try {
+        $conn = new mysqli($servername, $username, $password, $dbname);
+    } catch (PDOException $e) {
+        $error=$e->getMessage();
+        echo '<p> Unable to connect to database: ' .$error;
+        exit();
+    }
 ?>

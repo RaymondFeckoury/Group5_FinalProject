@@ -1,3 +1,53 @@
+<?php
+    // Starts the session and makes sure we're connected to the database
+    session_start();
+    require('connDB.php');
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        // Validates input: all fields filled and password is at least 7 characters
+        if (empty($username) || empty($password) || empty($email)) {
+            echo "<h5>Please fill out all fields.</h5>";
+        } else if (strlen($password) < 7) {
+            echo "<h5>Password must be more than 6 characters.</h6>";
+        } else {
+            // Checks for duplicates already in the user list database
+            $checkDuplicate = "SELECT * FROM userList WHERE username='$username' OR email='$email' LIMIT 1";
+            $result = mysqli_query($conn, $checkDuplicate);
+            $user = mysqli_fetch_assoc($result);
+            // If a user with the same info already exists
+            if ($user) {
+                // Case: same username
+                if ($user['username'] === $username) {
+                    echo "<h5>Username already exists!</h5>";
+                }
+                // Case: same email
+                if ($user['email'] === $email) {
+                    echo "<h5>Email already exists!</h5>";
+                }
+            } else {
+                // Inserts account info into the database
+                $query = "INSERT INTO userList VALUES('$username', '$password', '$email')";
+                mysqli_query($conn, $query);
+                // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
+                if(isset($_SESSION['username'])) {
+                    header('Location: loggedIn.html');
+                    exit();
+                } else if (isset($_POST['username'])) {
+                    $username = $_POST['username'];
+                    $_SESSION['username'] = $username;
+                    $url = "loggedIn.html";
+                    header('Location: loggedIn.html');
+                    exit();
+                }
+            }
+        }
+    }
+     
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
