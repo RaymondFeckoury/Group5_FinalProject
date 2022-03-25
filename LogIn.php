@@ -16,15 +16,14 @@
         <p>Welcome!</p>
         <form method="post">
             <div>
-                <label for="username">Username:</label><br>
-                <input type="text" name="username">
+                <input type="text" placeholder="Username" name="username">
             </div>
             <div>
-            <label for="password">Password:</label><br>
-                <input type="text" name="password">
+                <input type="text" placeholder="Password" name="password">
             </div>
             <div>
                 <button type="submit">Submit</button>
+                <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
             </div>
         </form>
     </div>
