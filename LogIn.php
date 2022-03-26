@@ -65,6 +65,13 @@
                 <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
             </div>
         </form>
+        <?php
+        if (isset($_GET["newpwd"])) {
+            if ($_GET["newpwd"] == "passwordupdated") {
+                echo '<p>Your password has been reset!</p>';
+            }
+        }
+        ?>
     </div>
 </body>
 </html>

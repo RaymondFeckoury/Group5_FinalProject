@@ -38,7 +38,7 @@ if (isset($_POST["reset-request-submit"])) {
     }
 
     mysqli_stmt_close($stmt);
-    mysqli_close();
+    mysqli_close($conn);
 
     // SENDING THE EMAIL
 
@@ -47,7 +47,7 @@ if (isset($_POST["reset-request-submit"])) {
     $message = '<p>The link to reset your password is below.</p><br>';
     $message .= '<a href="' . $url . '">' . $url . '</a>';
 
-    // NOTE: left out the headers options for now
+    // Maybe add headers later
 
     mail($to, $subject, $message);
 

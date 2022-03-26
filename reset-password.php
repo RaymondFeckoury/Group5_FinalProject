@@ -22,7 +22,13 @@
             <input placeholder="Enter your email..." type="text" name="email">
             <button type="submit" name="reset-request-submit">Receive new password by email</button>
         </form>
-        <!-- DID NOT INCLUDE PHP SCRIPT HERE -->
+        <?php
+            if (isset($_GET["reset"])) {
+                if ($_GET["reset"] == "success") {
+                    echo '<p class="signupsuccess">Check your email!</p>';
+                }
+            }
+        ?>
     </div>
 </body>
 </html>
