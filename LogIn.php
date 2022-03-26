@@ -61,6 +61,7 @@
             </div>
             <div>
                 <button type="submit">Submit</button>
+                <p> Forgot password? Reset <a href="reset-password.php">here</a>.</p>
                 <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
             </div>
         </form>
