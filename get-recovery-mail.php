@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form method="POST" action="send-recovery-mail.php">
+    <form method="POST" action="send-recovery-email.php">
         <input type="email" name="email">
         <input type="submit" value="Send recovery email">
     </form>
