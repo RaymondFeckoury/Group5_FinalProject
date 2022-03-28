@@ -29,8 +29,9 @@
                 }
             } else {
                 // Inserts account info into the database
-                $query = "INSERT INTO userList VALUES('$username', '$password', '$email')";
+                $query = "INSERT INTO userList (username, password, email, reset_token) VALUES('$username', '$password', '$email', 'default')";
                 mysqli_query($conn, $query);
+                echo "<h1>YOU MADE IT PAST THE SQL QUERY</h1>";
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {
                     header('Location: loggedIn.html');
@@ -56,7 +57,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Log In/Create Account</title>
+    <title>Create Account</title>
 </head>
 
 <body>
