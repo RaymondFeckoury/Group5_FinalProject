@@ -62,6 +62,7 @@
             <div>
                 <button type="submit">Submit</button>
                 <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
+                <p> Forgot password? Recover <a href="get-recovery-mail.php">here</a>.</p>
             </div>
         </form>
     </div>
