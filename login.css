@@ -1,0 +1,14 @@
+body {
+    background-color: #b3e2ea;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    align-items: center;
+}
+.create{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border: 5px solid white;
+    padding: 10px;
+    text-align: center;
+}
