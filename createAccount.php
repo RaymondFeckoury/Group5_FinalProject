@@ -55,12 +55,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" type="text/css" href="createAccount.css">
     <title>Log In/Create Account</title>
 </head>
 
 <body>
-    <div>
+    <div class = "create">
         <h1>Create an account</h1>
         <p>Let's Get Started!<p>
         <form method="post">
