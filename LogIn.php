@@ -46,10 +46,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Log In/Create Account</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
 <body>
-    <div>
+    <div class = "create">
         <h1> Log In </h1>
         <p>Welcome!</p>
         <form method="post">
