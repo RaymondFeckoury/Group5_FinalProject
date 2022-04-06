@@ -23,13 +23,13 @@
             // If user successfully signs in we redirect to a welcome page
             // again I DONT KNOW HOW THIS WORKS lol but it does
             if(isset($_SESSION['username'])) {
-                header('Location: welcome.html');
+                header('Location: ../HTML/welcome.html');
                 exit();
             } else if (isset($_POST['username'])) {
                 $username = $_POST['username'];
                 $_SESSION['username'] = $username;
-                $url = "welcome.html";
-                header('Location: welcome.html');
+                $url = "../HTML/welcome.html";
+                header('Location: ../HTML/welcome.html');
                 exit();
             }
         }
@@ -46,7 +46,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Log In/Create Account</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
 </head>
 
 <body>

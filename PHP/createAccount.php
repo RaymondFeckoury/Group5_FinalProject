@@ -33,13 +33,13 @@
                 mysqli_query($conn, $query);
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {
-                    header('Location: welcome.html');
+                    header('Location: ../HTML/welcome.html');
                     exit();
                 } else if (isset($_POST['username'])) {
                     $username = $_POST['username'];
                     $_SESSION['username'] = $username;
-                    $url = "welcome.html";
-                    header('Location: welcome.html');
+                    $url = "../HTML/welcome.html";
+                    header('Location: ../HTML/welcome.html');
                     exit();
                 }
             }
@@ -55,7 +55,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
     <title>Log In/Create Account</title>
 </head>
 
