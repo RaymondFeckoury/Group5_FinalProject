@@ -27,7 +27,7 @@
                 exit();
             } else if (isset($_POST['username'])) {
                 $username = $_POST['username'];
-                $_SESSION['username'] = $username;
+                $_SESSION["username"] = $username;
                 $url = "../HTML/index.html";
                 header('Location: ../HTML/index.html');
                 exit();

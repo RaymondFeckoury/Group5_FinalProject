@@ -1,5 +1,7 @@
 <?php
+    session_start();
     require('connDB.php');
+
     // If form data has been submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $company = $_POST['company'];
@@ -9,7 +11,8 @@
             echo "<h5>Company name is required.</h5>";
         } else {
             // Inserts application info into the database
-            $query = "INSERT INTO completed VALUES('$company', '$date', '$comments')";
+            $un = $_SESSION["username"];
+            $query = "INSERT INTO `completed` (`company`, `date`, `comments`, `username`) VALUES ('$company', '$date', '$comments', '" . $un . "');";
             mysqli_query($conn, $query);
             // Returns to the completed page
             header('Location: completed.php');

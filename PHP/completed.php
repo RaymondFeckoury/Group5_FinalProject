@@ -9,8 +9,10 @@
 </html>
 
 <?php 
+    session_start();
     require('connDB.php');
-    $sql = "SELECT * FROM completed";
+    $un = $_SESSION["username"];
+    $sql = "SELECT * FROM completed WHERE username='$un'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
