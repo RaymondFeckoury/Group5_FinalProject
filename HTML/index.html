@@ -4,13 +4,26 @@
     <!--Meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <title>Home Page</title>
 </head>
 <body>
+    <!--Nav bar which enables users to access each page if logged in-->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">Nereus.</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="./static/aboutus.html">About Us</a>
+                <a class="nav-item nav-link" href="newbrowse.php">Browse</a>
+                <a class="nav-item nav-link" href="LogIn.php">Login</a>
+                <a class="nav-item nav-link" href="ep.php">Edit Profile</a>
+                <a class="nav-item nav-link" href="logOut.php">Logout</a>
+            </div>
+        </div>
+    </nav>
 
-    <h1>Home page which is accessible before logging in</h1>
-    <p>Maybe just display the help page visible from welcome page</p>
+    <h1> Welcome To Application Organizer! </h1>
+    <a href="../PHP/completed.php">Completed Applications</a>
     <a href="../PHP/LogIn.php">Click to log in</a>
 
 </body>

@@ -23,13 +23,13 @@
             // If user successfully signs in we redirect to a welcome page
             // again I DONT KNOW HOW THIS WORKS lol but it does
             if(isset($_SESSION['username'])) {
-                header('Location: ../HTML/welcome.html');
+                header('Location: ../HTML/index.html');
                 exit();
             } else if (isset($_POST['username'])) {
                 $username = $_POST['username'];
                 $_SESSION['username'] = $username;
-                $url = "../HTML/welcome.html";
-                header('Location: ../HTML/welcome.html');
+                $url = "../HTML/index.html";
+                header('Location: ../HTML/index.html');
                 exit();
             }
         }
@@ -64,6 +64,7 @@
                 <button type="submit">Submit</button><br><br>
                 <a class="forgotLink" href="forgotPassword.php">Forgot Password?</a>
                 <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
+                <a href="../HTML/index.html">Return To Home Page</a>
             </div>
         </form>
     </div>
