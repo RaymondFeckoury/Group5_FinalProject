@@ -61,7 +61,8 @@
                 <input type="password" placeholder="Password" name="password" required>
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button type="submit">Submit</button><br><br>
+                <a class="forgotLink" href="forgotPassword.php">Forgot Password?</a>
                 <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
             </div>
         </form>
