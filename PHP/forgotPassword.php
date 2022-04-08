@@ -1,4 +1,4 @@
-<?php    
+<?php
     // Starts the session and makes sure we're connected to the database
     session_start();
     require('connDB.php');
@@ -21,6 +21,7 @@
         } else {
             // Sends the reset password email
             echo "<h5>An email has been sent to your account.</h5>";
+            
         }
     }
 ?>
