@@ -23,14 +23,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+    <title>Add Applicaton</title>
+</head>
 <body>
-    <div class=newApp>
+    <div class="create">
+        <h1>Add a New Application</h1>
         <form method="post">
-            <input type="text" placeholder="Company" name="company"><br>
+            <input type="text" placeholder="Company Name" name="company"><br>
+            <input type="text" placeholder="Location" name="location"><br>
             <input type="text" placeholder="Date" name="date"><br>
+            <input type="text" placeholder="Work Style" name="style"><br>
+            <input type="text" placeholder="Job Title" name="title"><br>
             <input type="text" placeholder="Comments" name="comments"><br>
-            <button type="submit">Submit</button>
+            <button type="submit">Submit</button><br><br>
+            <a href="../HTML/index.html">Return To Home Page</a><br>
         </form>
     </div>
 </body>
