@@ -1,5 +1,5 @@
 <?php
-    // creates a session puts it in an array and then destroys the session with the current user and log in
+    // Makes sure all session variables are destroyed
     session_start();
     $_SESSION = array();
     session_destroy();

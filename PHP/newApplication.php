@@ -15,7 +15,6 @@
         } else {
             // Inserts application info into the database
             $un = $_SESSION["username"];
-            //$query = "INSERT INTO `completed` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
             $query = "INSERT INTO `completed`(`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
             mysqli_query($conn, $query);
             // Returns to the completed page
