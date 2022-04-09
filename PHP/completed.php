@@ -27,16 +27,16 @@
 
 <?php
     $un = $_SESSION["username"];
-    echo $un;
     $sql = "SELECT * FROM completed WHERE username='" . $un . "'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
+        // Table headers
         echo "<table><tr><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
-        echo "<tr><td>Amazon</td><td>Seattle</td><td>SWE</td><td>3/14/2022</td><td>In-Person</td><td>This is a comment.</td></tr></table>";
         // Puts all results of the sql query into the table
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "Company: " . $row["company"]. " - Date: " . $row["date"]. " - Comments:" . $row["comments"]. "<br>";
+            echo "<tr><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobtitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
         }
+        echo "</table>";
     } else {
         echo "You currently have 0 completed applications.";
     }
