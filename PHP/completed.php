@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    require('connDB.php');
+    require('session.php');
 ?>
 
 <!DOCTYPE html>
