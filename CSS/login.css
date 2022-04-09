@@ -4,7 +4,8 @@ body {
     font-size: 20px;
     align-items: center;
 }
-.create{
+
+.create {
     margin-top: 150px;
     border-style: solid;
     border-width: medium;
@@ -13,12 +14,17 @@ body {
     margin-left: 200px;
     margin-right: 200px;
     display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 15px;
 }
 
 .name-location-date, .style-title {
+    text-align: center;
     display: inline-block;
 }
 
 .comments {
+    text-align: center;
     display: inline-block;
 }

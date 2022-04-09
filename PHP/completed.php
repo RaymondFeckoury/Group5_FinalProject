@@ -5,10 +5,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <!--Meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <title>Completed</title>
+</head>
 <body>
-    <a href="newApplication.php">Click to add new application</a><br>
-    <a href="../HTML/index.html">Home Page</a>
+    <div class="topnav">
+        <a class="active" href="../HTML/index.html">Home</a>
+        <a href="newApplication.php">Add a New Application</a>
+        <a href="">Saved Applications</a>
+        <a href="">Upcoming Interviews</a>
+    </div>
     <h1>Here are your completed applications:</h1>
 </body>
 

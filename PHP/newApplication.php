@@ -5,7 +5,10 @@
     // If form data has been submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $company = $_POST['company'];
+        $location = $_POST['location'];
         $date = $_POST['date'];
+
+        $title = $_POST['title'];
         $comments = $_POST['comments'];
         if (empty($company)) { // Requires company name
             echo "<h5>Company name is required.</h5>";
@@ -40,19 +43,21 @@
             <div class="style-title">
                 <h5>Work Style Options:</h5>
                 <input type="checkbox" name="in-person" value="in-person">
-                <label for="in-person">In-Person</label><br>
+                <label for="in-person">In-Person</label>
                 <input type="checkbox" name="remote" value="remote">
                 <label for="remote">Remote</label><br>
                 <input type="checkbox" name="hybrid" value="hybrid">
-                <label for="hybrid">Hybrid</label><br>
+                <label for="hybrid">Hybrid</label>
                 <input type="checkbox" name="unclear" value="unclear">
                 <label for="in-person">Unclear</label><br>
                 <input type="text" placeholder="Job Title" name="title"><br>
             </div>
             <div class="comments">
+                <hr>
                 <input type="text" placeholder="Comments" name="comments"><br>
             </div>
             <div class="buttons">
+                <br>
                 <button type="submit">Submit</button>
                 <input type="reset"><br><br>
             </div>
