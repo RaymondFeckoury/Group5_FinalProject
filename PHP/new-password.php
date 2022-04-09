@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('connDB.php');
     $email = $_POST["email"];
     $reset_token = $_POST["reset_token"];

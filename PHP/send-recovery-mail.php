@@ -1,5 +1,6 @@
 <?php
     require('connDB.php');
+    session_start();
     // Includes the library
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -18,7 +19,7 @@
         $sql = "UPDATE userList SET reset_token='$reset_token' WHERE email='$email'";
         mysqli_query($conn, $sql);
         $message = "<p>Please click the link below to reset your password</p>";
-        $message .= "<a href='http://localhost/FinalProject/Group5_FinalProject/PHP/reset-password.php'>";
+        $message .= "<a href='http://localhost/FinalProject/Group5_FinalProject/PHP/reset-password.php?email=$email&reset_token=$reset_token'>";
         $message .= "Reset password";
         $message .= "</a>";
         // Calls the function to send the email

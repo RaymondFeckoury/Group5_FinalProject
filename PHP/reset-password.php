@@ -1,9 +1,7 @@
 <?php
-    echo "hello";
+    session_start();
     $email = $_GET["email"];
-    echo $email;
     $reset_token = $_GET["reset_token"];
-    echo $reset_token;
 
     require('connDB.php');
     
