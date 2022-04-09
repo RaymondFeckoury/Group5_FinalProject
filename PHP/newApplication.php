@@ -7,15 +7,16 @@
         $company = $_POST['company'];
         $location = $_POST['location'];
         $date = $_POST['date'];
-
-        $title = $_POST['title'];
+        $workLocation = $_POST['worklocation'];
+        $title = $_POST['jobtitle'];
         $comments = $_POST['comments'];
         if (empty($company)) { // Requires company name
             echo "<h5>Company name is required.</h5>";
         } else {
             // Inserts application info into the database
             $un = $_SESSION["username"];
-            $query = "INSERT INTO `completed` (`company`, `date`, `comments`, `username`) VALUES ('$company', '$date', '$comments', '" . $un . "');";
+            //$query = "INSERT INTO `completed` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
+            $query = "INSERT INTO `completed`(`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
             mysqli_query($conn, $query);
             // Returns to the completed page
             header('Location: completed.php');
@@ -36,21 +37,19 @@
         <form method="post">
             <div class="name-location-date">
                 <input type="text" placeholder="Company Name" name="company"><br>
-                <input type="text" placeholder="Location" name="location"><br>
-                <label for="date">Date Applied:</label>
-                <input type="date" id="date" name="date">
+                <input type="text" placeholder="Location (State, City, etc.)" name="location"><br>
+                <input type="text" placeholder="Job Title" name="jobtitle">
             </div>
             <div class="style-title">
-                <h5>Work Style Options:</h5>
-                <input type="checkbox" name="in-person" value="in-person">
-                <label for="in-person">In-Person</label>
-                <input type="checkbox" name="remote" value="remote">
-                <label for="remote">Remote</label><br>
-                <input type="checkbox" name="hybrid" value="hybrid">
-                <label for="hybrid">Hybrid</label>
-                <input type="checkbox" name="unclear" value="unclear">
-                <label for="in-person">Unclear</label><br>
-                <input type="text" placeholder="Job Title" name="title"><br>
+                <label for="date">Date Applied:</label>
+                <input type="date" id="date" name="date"><br>
+                <label for="worklocation">Work Location:</label>
+                <select name="worklocation">
+                    <option value="in-person">In-Person</option>
+                    <option value="remote">Remote</option>
+                    <option value="hybrid">Hybrid</option>
+                    <option value="unclear">Unclear</option>
+                </select>
             </div>
             <div class="comments">
                 <hr>
