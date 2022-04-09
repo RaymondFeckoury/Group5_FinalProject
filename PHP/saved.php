@@ -16,7 +16,7 @@
     <div class="topnav">
         <a class="active" href="../HTML/index.html">Home</a>
         <a href="newSaved.php">Save a New Application</a>
-        <a href="">Saved Applications</a>
+        <a href="completed.php">Completed Applications</a>
         <a href="">Upcoming Interviews</a>
     </div>
     <h1>Here are your saved applications:</h1>
