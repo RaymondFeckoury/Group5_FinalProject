@@ -29,7 +29,7 @@
                 }
             } else {
                 // Inserts account info into the database
-                $query = "INSERT INTO userList VALUES('$username', '$password', '$email')";
+                $query = "INSERT INTO userList VALUES('$username', '$password', '$email', '')";
                 mysqli_query($conn, $query);
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {

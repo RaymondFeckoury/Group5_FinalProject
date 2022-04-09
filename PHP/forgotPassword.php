@@ -1,6 +1,6 @@
 <?php
     // Starts the session and makes sure we're connected to the database
-    session_start();
+    /*session_start();
     require('connDB.php');
 
     // Checks that the information in the form has been submitted
@@ -23,7 +23,7 @@
             echo "<h5>An email has been sent to your account.</h5>";
             
         }
-    }
+    }*/
 ?>
 
 <!--HTML page layout-->
@@ -42,13 +42,13 @@
     <div class = "create">
         <h1> Reset Password </h1>
         <p>Please enter the email associated with your account below:</p>
-        <form method="post">
+        <form method="post" action="send-recovery-mail.php">
             <div>
-                <input type="text" placeholder="Email" name="email" required>
+                <input type="email" placeholder="Email" name="email" required>
             </div>
             <br>
             <div>
-                <button type="submit">Submit</button><br><br>
+                <input type="submit" value="Send Recovery Email"><br><br>
                 <a href="LogIn.php">Back to Login</a>
             </div>
         </form>
