@@ -40,12 +40,12 @@
             $mail->isSMTP();                                            // Set mailer to use SMTP
             $mail->Host       = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'your_gmail_address';                     // SMTP username
-            $mail->Password   = 'your_gmail_password';                               // SMTP password
+            $mail->Username   = 'application.organizer1@gmail.com';                     // SMTP username
+            $mail->Password   = 'engekqexvfjsdaqs';                               // SMTP password
             $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
         
-            $mail->setFrom('your_gmail_address', 'your_name');
+            $mail->setFrom('application.organizer1@gmail.com', 'Application Organizer');
             //Recipients
             $mail->addAddress($to);
         
