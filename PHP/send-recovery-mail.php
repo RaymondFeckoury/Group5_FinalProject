@@ -56,7 +56,8 @@
             $mail->Body    = $message;
         
             $mail->send();
-            echo 'Message has been sent';
+            echo '<h1 style="text-align:center;">A link to reset password has been sent to your email<h1>';
+            echo '<a style="text-align:center;" href="../HTML/index.html">Return To Home Page</a>';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

@@ -14,7 +14,8 @@
         {
             $sql = "UPDATE userList SET password='$new_password' WHERE email='$email' AND reset_token='$reset_token'";
             mysqli_query($conn, $sql);
-            echo "Password has been changed";
+            // Redirects the user to the home page once they change their password
+            header("Location: ../HTML/index.html");
         }
         else
         {

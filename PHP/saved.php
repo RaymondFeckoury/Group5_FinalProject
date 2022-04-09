@@ -10,33 +10,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" type="text/css" href="completedStyle.php">
-    <title>Completed</title>
+    <title>Saved</title>
 </head>
 <body>
     <div class="topnav">
         <a class="active" href="../HTML/index.html">Home</a>
-        <a href="newApplication.php">Add a New Application</a>
-        <a href="saved.php">Saved Applications</a>
+        <a href="newSaved.php">Save a New Application</a>
+        <a href="">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
     </div>
-    <h1>Here are your completed applications:</h1>
+    <h1>Here are your saved applications:</h1>
 </body>
 
 </html>
 
 <?php
     $un = $_SESSION["username"];
-    $sql = "SELECT * FROM completed WHERE username='" . $un . "'";
+    $sql = "SELECT * FROM saved WHERE username='" . $un . "'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // Table headers
-        echo "<table><tr><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
+        echo "<table><tr><th>Priority Ranking</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
         // Puts all results of the sql query into the table
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
+            echo "<tr><td>" . $row["priority"]. "</td><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
         }
         echo "</table>";
     } else {
-        echo "You currently have 0 completed applications.";
+        echo "You currently have 0 saved applications.";
     }
 ?>
