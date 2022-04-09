@@ -12,4 +12,13 @@ body {
     text-align: center;
     margin-left: 200px;
     margin-right: 200px;
+    display: inline-block;
+}
+
+.name-location-date, .style-title {
+    display: inline-block;
+}
+
+.comments {
+    display: inline-block;
 }
