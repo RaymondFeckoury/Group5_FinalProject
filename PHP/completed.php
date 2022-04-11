@@ -6,9 +6,15 @@
         $move = $_POST['move'];   
         $appid = $_POST['appSelect'];
         // If user wants to delete the application
-        $un = $_SESSION["username"];
-        $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
-        mysqli_query($conn, $query);
+        if ($_POST['move'] == 'delete') {
+            $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
+            mysqli_query($conn, $query);
+        } else if ($_POST['move'] == 'offers') {
+            
+        } else if ($_POST['move'] == 'rejections') {
+
+        }
+        
         // Returns to the saved page
         header('Location: completed.php');
         exit();
