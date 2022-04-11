@@ -1,5 +1,18 @@
 <?php
     require('session.php');
+
+    // If form data has been submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $move = $_POST['move'];   
+        $appid = $_POST['appSelect'];
+        // If user wants to delete the application
+        $un = $_SESSION["username"];
+        $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
+        mysqli_query($conn, $query);
+        // Returns to the saved page
+        header('Location: completed.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +26,17 @@
     <title>Completed</title>
 </head>
 <body>
+    
+    <!--This is the topnav-->
     <div class="topnav">
         <a class="active" href="../HTML/index.html">Home</a>
         <a href="newApplication.php">Add a New Application</a>
         <a href="saved.php">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
     </div>
-    <form method="post" action="">
+
+    <!--This is the application modifying option-->
+    <form method="post">
         <h1>Here are your completed applications:</h1>
         <label for="appSelect">Select Application id to Modify:</label>
         <input type="number" id="appSelect" name="appSelect" min="1" max="500">
