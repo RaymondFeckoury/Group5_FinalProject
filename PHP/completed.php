@@ -19,7 +19,18 @@
         <a href="saved.php">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
     </div>
-    <h1>Here are your completed applications:</h1>
+    <form method="post" action="">
+        <h1>Here are your completed applications:</h1>
+        <label for="appSelect">Select Application id to Modify:</label>
+        <input type="number" id="appSelect" name="appSelect" min="1" max="500">
+        <select name="move">
+            <option value="delete">Delete</option>
+            <option value="offers">Move to Offers</option>
+            <option value="rejections">Move to Rejections</option>
+        </select>
+        <input type="submit" value="Submit Changes"><br><br>
+    </form>
+
 </body>
 
 </html>
