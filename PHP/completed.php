@@ -1,30 +1,40 @@
 <?php
     require('session.php');
+    require('connDB.php');
 
     // If form data has been submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $move = $_POST['move'];   
         $appid = $_POST['appSelect'];
         // If user wants to delete the application
-        if ($_POST['move'] == 'delete') {
-            $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
-            mysqli_query($conn, $query);
-        } else if ($_POST['move'] == 'offers') {
-            
+        if ($_POST['move'] == 'offers') {
+            // SQL queries to get information about the application we are moving
+            $getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
+            $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
+            $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
+            $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
+            $getWL = "SELECT workLocation FROM `completed` WHERE `completed`.`id` = $appid";
+            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";
+
+            // Executes the SQL queries
+            $company = mysqli_query($conn, $getCompany);
+            $location = mysqli_query($conn, $getLocation);
+            $jobTitle = mysqli_query($conn, $getJT);
+            $date = mysqli_query($conn, $getDate);
+            $wl = mysqli_query($conn, $getWL);
+            $comments = mysqli_query($conn, $getComments);
+
+            // Moves the application to offers
+            /*$toOffers = "INSERT INTO `offers` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ($company, $location, $jobTitle, $date, $wl, $comments, 'hardcoded')";
+            mysqli_query($conn, $toOffers);*/
+
         } else if ($_POST['move'] == 'rejections') {
             // SQL queries to get information about the application we are moving
-            $getCompany = "SELECT company FROM `completed` WHERE `id` = $appid";
-            $getLocation = "SELECT location FROM `completed` WHERE `id` = $appid";
-            $getJT = "SELECT jobTitle FROM `completed` WHERE `id` = $appid";
-            $getDate = "SELECT date FROM `completed` WHERE `id` = $appid";
-            $getComments = "SELECT comments FROM `completed` WHERE `id` = $appid";
-
-            // Debugging
-            echo $getCompany;
-            echo $getLocation;
-            echo $getJT;
-            echo $getDate;
-            echo $getComments;
+            $getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
+            $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
+            $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
+            $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
+            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";
 
             // Executes the SQL queries
             $company = mysqli_query($conn, $getCompany);
@@ -34,13 +44,13 @@
             $comments = mysqli_query($conn, $getComments);
 
             // Moves to rejections
-            //$query2 = "INSERT INTO Rejections (`company`, `location`, `jobTitle`, `date`, `comments`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments')";
+            //$query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
             //mysqli_query($conn, $query2);
 
-            // Deletes from completed
-            $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
-            mysqli_query($conn, $query);
         }
+
+        $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
+        mysqli_query($conn, $query);
         
         // Returns to the saved page
         header('Location: completed.php');
@@ -66,6 +76,8 @@
         <a href="newApplication.php">Add a New Application</a>
         <a href="saved.php">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
+        <a href="">Offers</a>
+        <a href="">Rejections</a>
     </div>
 
     <!--This is the application modifying option-->
