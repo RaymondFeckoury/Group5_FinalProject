@@ -12,7 +12,34 @@
         } else if ($_POST['move'] == 'offers') {
             
         } else if ($_POST['move'] == 'rejections') {
+            // SQL queries to get information about the application we are moving
+            $getCompany = "SELECT company FROM `completed` WHERE `id` = $appid";
+            $getLocation = "SELECT location FROM `completed` WHERE `id` = $appid";
+            $getJT = "SELECT jobTitle FROM `completed` WHERE `id` = $appid";
+            $getDate = "SELECT date FROM `completed` WHERE `id` = $appid";
+            $getComments = "SELECT comments FROM `completed` WHERE `id` = $appid";
 
+            // Debugging
+            echo $getCompany;
+            echo $getLocation;
+            echo $getJT;
+            echo $getDate;
+            echo $getComments;
+
+            // Executes the SQL queries
+            $company = mysqli_query($conn, $getCompany);
+            $location = mysqli_query($conn, $getLocation);
+            $jobTitle = mysqli_query($conn, $getJT);
+            $date = mysqli_query($conn, $getDate);
+            $comments = mysqli_query($conn, $getComments);
+
+            // Moves to rejections
+            //$query2 = "INSERT INTO Rejections (`company`, `location`, `jobTitle`, `date`, `comments`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments')";
+            //mysqli_query($conn, $query2);
+
+            // Deletes from completed
+            $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
+            mysqli_query($conn, $query);
         }
         
         // Returns to the saved page
