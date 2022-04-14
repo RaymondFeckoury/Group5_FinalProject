@@ -3,6 +3,7 @@
     session_start();
     $_SESSION = array();
     session_destroy();
+    
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,12 @@
 
 <body>
     <h1>You have successfully logged out.</h1>
-    <a href="../HTML/index.html">Home Page</a>
+    <?php
+        header('Location: ../HTML/index.h');
+        exit();
+
+    ?>
+
 </body>
 
 </html>
