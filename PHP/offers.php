@@ -6,11 +6,9 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $move = $_POST['move'];   
         $appid = $_POST['appSelect'];
-        // If user wants to delete the offer
-        if ($move == 'offers') {
-            $query = "DELETE FROM offers WHERE `completed`.`id` = $appid";
-            mysqli_query($conn, $query);
-        } 
+        // Deletes the offer specified by the user
+        $query = "DELETE FROM offers WHERE `offers`.`id` = $appid";
+        mysqli_query($conn, $query);
         
         // Returns to the offers page
         header('Location: offers.php');
@@ -58,10 +56,10 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // Table headers
-        echo "<table><tr><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
+        echo "<table><tr><th>id</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
         // Puts all results of the sql query into the table
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
+            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["company"] . "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
         }
         echo "</table>";
     } else {
