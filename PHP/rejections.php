@@ -1,5 +1,6 @@
 <?php
-    include('session.php');
+    require('session.php');
+    require('connDB.php');
 ?>
 <html>
     <head>
@@ -18,8 +19,21 @@
         <a href="">Upcoming Interviews</a>
         <a href="">Offers</a>
     </div>
+    <br>
+    <br>
     <?php
-        echo "<table><tr><th>id</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
+        $un = $_SESSION["username"];
+        $sql = "SELECT * FROM rejections WHERE username='" . $un . "'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                echo "<tr><td>" . $row["id"] . "</td><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
+            }
+        } else {
+            echo "You currently have 0 completed applications.";
+        }
+
 
     ?>
     
