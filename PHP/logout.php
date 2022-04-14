@@ -12,7 +12,7 @@
 <body>
     <h1>You have successfully logged out.</h1>
     <?php
-        header('Location: ../HTML/index.h');
+        header('Location: ../HTML/index.html');
         exit();
 
     ?>

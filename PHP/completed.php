@@ -77,7 +77,7 @@
         <a href="saved.php">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
         <a href="">Offers</a>
-        <a href="">Rejections</a>
+        <a href="rejections.php">Rejections</a>
     </div>
 
     <!--This is the application modifying option-->
