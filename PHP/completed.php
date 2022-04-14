@@ -44,7 +44,12 @@
             $comments = mysqli_query($conn, $getComments);
 
             // Moves to rejections
-            //$query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
+            $query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
+            if (mysqli_query($conn, $query2)) {
+                echo "New record created successfully";
+              } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+              }
             //mysqli_query($conn, $query2);
 
         }
@@ -53,8 +58,8 @@
         mysqli_query($conn, $query);
         
         // Returns to the saved page
-        header('Location: completed.php');
-        exit();
+        //header('Location: completed.php');
+        //exit();
     }
 ?>
 
