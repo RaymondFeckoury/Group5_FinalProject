@@ -9,64 +9,46 @@
         $un = $_SESSION["username"];
         // If user wants to delete the application
         if ($_POST['move'] == 'offers') {
-            // SQL queries to get information about the application we are moving
-            /*$getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
-            $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
-            $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
-            $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
-            $getWL = "SELECT workLocation FROM `completed` WHERE `completed`.`id` = $appid";
-            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";*/
-
-            // Executes the SQL queries
-            /*$company = mysqli_query($conn, $getCompany);
-            $location = mysqli_query($conn, $getLocation);
-            $jobTitle = mysqli_query($conn, $getJT);
-            $date = mysqli_query($conn, $getDate);
-            $wl = mysqli_query($conn, $getWL);
-            $comments = mysqli_query($conn, $getComments);*/
-
+            // Gets the corresponding row the user would like to move
             $sql = "SELECT * FROM `completed` WHERE `completed`.`id` = $appid";
             $result2 = mysqli_query($conn, $sql);
             $row2 = mysqli_fetch_assoc($result2);
 
-            //echo $row2["company"];
+            // Puts the information from that row into variables to be used in SQL queries
+            $company = $row2["company"];
+            $location = $row2["location"];
+            $jobTitle = $row2["jobTitle"];
+            $date = $row2["date"];
+            $wl = $row2["workLocation"];
+            $comments = $row2["comments"];
+            $username = $row2["username"];
 
             // Moves the application to offers
-            //$toOffers = "INSERT INTO `offers` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ($row2["company"], $row2["location"], $row2["jobTitle"], $row2["date"], $row2["workLocation"], $row2["comments"], 'hardcoded')";
+            $toOffers = "INSERT INTO `offers` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$wl', '$comments', '$username')";
             mysqli_query($conn, $toOffers);
 
         } else if ($_POST['move'] == 'rejections') {
-            // SQL queries to get information about the application we are moving
-            /*$getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
-            $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
-            $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
-            $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
-            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";
+            // Gets the corresponding row the user would like to move
+            $sql = "SELECT * FROM `completed` WHERE `completed`.`id` = $appid";
+            $result2 = mysqli_query($conn, $sql);
+            $row2 = mysqli_fetch_assoc($result2);
 
-            // Executes the SQL queries
-            $company = mysqli_query($conn, $getCompany);
-            $location = mysqli_query($conn, $getLocation);
-            $jobTitle = mysqli_query($conn, $getJT);
-            $date = mysqli_query($conn, $getDate);
-            $comments = mysqli_query($conn, $getComments);
+            // Puts the information from that row into variables to be used in SQL queries
+            $company = $row2["company"];
+            $location = $row2["location"];
+            $jobTitle = $row2["jobTitle"];
+            $date = $row2["date"];
+            $comments = $row2["comments"];
+            $username = $row2["username"];
 
-            // Moves to rejections
-            //$query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
-            if (mysqli_query($conn, $query2)) {
-                echo "New record created successfully";
-              } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-            //mysqli_query($conn, $query2);*/
+            // Moves the application to rejections
+            $query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '$username')";
+            mysqli_query($conn, $query2);
 
         }
 
         $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
-        //mysqli_query($conn, $query);
-        
-        // Returns to the saved page
-        //header('Location: completed.php');
-        //exit();
+        mysqli_query($conn, $query);
     }
 ?>
 
@@ -88,8 +70,8 @@
         <a href="newApplication.php">Add a New Application</a>
         <a href="saved.php">Saved Applications</a>
         <a href="">Upcoming Interviews</a>
-        <a href="">Offers</a>
-        <a href="">Rejections</a>
+        <a href="offers.php">Offers</a>
+        <a href="rejections.php">Rejections</a>
     </div>
 
     <!--This is the application modifying option-->
