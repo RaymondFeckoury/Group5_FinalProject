@@ -6,31 +6,38 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $move = $_POST['move'];   
         $appid = $_POST['appSelect'];
+        $un = $_SESSION["username"];
         // If user wants to delete the application
         if ($_POST['move'] == 'offers') {
             // SQL queries to get information about the application we are moving
-            $getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
+            /*$getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
             $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
             $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
             $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
             $getWL = "SELECT workLocation FROM `completed` WHERE `completed`.`id` = $appid";
-            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";
+            $getComments = "SELECT comments FROM `completed` WHERE `completed`.`id` = $appid";*/
 
             // Executes the SQL queries
-            $company = mysqli_query($conn, $getCompany);
+            /*$company = mysqli_query($conn, $getCompany);
             $location = mysqli_query($conn, $getLocation);
             $jobTitle = mysqli_query($conn, $getJT);
             $date = mysqli_query($conn, $getDate);
             $wl = mysqli_query($conn, $getWL);
-            $comments = mysqli_query($conn, $getComments);
+            $comments = mysqli_query($conn, $getComments);*/
+
+            $sql = "SELECT * FROM `completed` WHERE `completed`.`id` = $appid";
+            $result2 = mysqli_query($conn, $sql);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            //echo $row2["company"];
 
             // Moves the application to offers
-            /*$toOffers = "INSERT INTO `offers` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ($company, $location, $jobTitle, $date, $wl, $comments, 'hardcoded')";
-            mysqli_query($conn, $toOffers);*/
+            //$toOffers = "INSERT INTO `offers` (`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ($row2["company"], $row2["location"], $row2["jobTitle"], $row2["date"], $row2["workLocation"], $row2["comments"], 'hardcoded')";
+            mysqli_query($conn, $toOffers);
 
         } else if ($_POST['move'] == 'rejections') {
             // SQL queries to get information about the application we are moving
-            $getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
+            /*$getCompany = "SELECT company FROM `completed` WHERE `completed`.`id` = $appid";
             $getLocation = "SELECT location FROM `completed` WHERE `completed`.`id` = $appid";
             $getJT = "SELECT jobTitle FROM `completed` WHERE `completed`.`id` = $appid";
             $getDate = "SELECT date FROM `completed` WHERE `completed`.`id` = $appid";
@@ -44,18 +51,18 @@
             $comments = mysqli_query($conn, $getComments);
 
             // Moves to rejections
-            $query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
+            //$query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('', '$location', '$jobTitle', '$date', '$comments', '" . $un . "');";
             if (mysqli_query($conn, $query2)) {
                 echo "New record created successfully";
               } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-              }
-            //mysqli_query($conn, $query2);
+            }
+            //mysqli_query($conn, $query2);*/
 
         }
 
         $query = "DELETE FROM completed WHERE `completed`.`id` = $appid";
-        mysqli_query($conn, $query);
+        //mysqli_query($conn, $query);
         
         // Returns to the saved page
         //header('Location: completed.php');

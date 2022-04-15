@@ -23,7 +23,7 @@
             // If user successfully signs in we redirect to a welcome page
             // again I DONT KNOW HOW THIS WORKS lol but it does
             if(isset($_SESSION['username'])) {
-                header('Location: ../HTML/index.html');
+                header('Location: ../HTML/index2.html');
                 exit();
             } else if (isset($_POST['username'])) {
                 $username = $_POST['username'];
