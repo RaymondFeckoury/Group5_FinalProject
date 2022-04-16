@@ -31,7 +31,7 @@
                 echo "<tr><td>" . $row["id"] . "</td><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
             }
         } else {
-            echo "You currently have 0 completed applications.";
+            echo "You currently have 0 rejections applications.";
         }
 
 
