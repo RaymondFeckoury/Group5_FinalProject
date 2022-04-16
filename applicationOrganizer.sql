@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2022 at 11:17 PM
+-- Generation Time: Apr 17, 2022 at 12:00 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -33,6 +33,31 @@ CREATE TABLE `completed` (
   `location` varchar(255) NOT NULL,
   `jobTitle` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
+  `workLocation` text NOT NULL,
+  `comments` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `completed`
+--
+
+INSERT INTO `completed` (`id`, `company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES
+(1, 'Amazon', 'Chicgo', 'SWE', '2022-03-17', 'in-person', '', 'raymo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offers`
+--
+
+CREATE TABLE `offers` (
+  `id` int(11) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `jobTitle` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `workLocation` text NOT NULL,
   `comments` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -106,7 +131,7 @@ ALTER TABLE `completed`
 -- AUTO_INCREMENT for table `completed`
 --
 ALTER TABLE `completed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
