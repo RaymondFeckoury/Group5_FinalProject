@@ -61,7 +61,7 @@
                 <button type="submit">Submit</button>
                 <input type="reset"><br><br>
             </div>
-            <a href="../HTML/index.html">Return To Home Page</a><br>
+            <a href="../HTML/index2.html">Return To Home Page</a><br>
         </form>
     </div>
 </body>

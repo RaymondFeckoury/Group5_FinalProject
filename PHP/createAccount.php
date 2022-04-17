@@ -33,7 +33,7 @@
                 mysqli_query($conn, $query);
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {
-                    header('Location: ../HTML/index.html');
+                    header('Location: ../HTML/index2.html');
                     exit();
                 } else if (isset($_POST['username'])) {
                     $username = $_POST['username'];
