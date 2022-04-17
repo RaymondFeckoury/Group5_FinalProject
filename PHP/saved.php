@@ -1,5 +1,17 @@
 <?php
     require('session.php');
+     // If form data has been submitted
+     if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $move = $_POST['move'];   
+        $appid = $_POST['appSelect'];
+        // Deletes the rejection specified by the user
+        $query = "DELETE FROM saved WHERE `saved`.`priority` = $appid";
+        mysqli_query($conn, $query);
+        
+        // Returns to the offers page
+        header('Location: saved.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +31,12 @@
         <a href="completed.php">Completed Applications</a>
         <a href="">Upcoming Interviews</a>
     </div>
-    <h1>Here are your saved applications:</h1>
+    <form method="post">
+        <h1>Here are your saved applications:<h1>
+        <label for="appSelect" style="font-size: 18px;">Select saved id to delete:</label>
+        <input type="number" id="appSelect" name="appSelect" min="1" max="500">
+        <input type="submit" value="Delete"><br><br>
+    </form>
 </body>
 
 </html>
@@ -30,7 +47,7 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // Table headers
-        echo "<table><tr><th>Priority Ranking</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
+        echo "<table style='font-size: 15px;'><tr><th>Priority Ranking</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
         // Puts all results of the sql query into the table
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr><td>" . $row["priority"]. "</td><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";

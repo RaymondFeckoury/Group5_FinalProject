@@ -68,8 +68,6 @@
     <div class="topnav">
         <a class="active" href="../HTML/index2.html">Home</a>
         <a href="newApplication.php">Add a New Application</a>
-        <a href="saved.php">Saved Applications</a>
-        <a href="">Upcoming Interviews</a>
         <a href="offers.php">Offers</a>
         <a href="rejections.php">Rejections</a>
     </div>
