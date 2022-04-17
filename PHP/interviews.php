@@ -32,8 +32,6 @@
     <div class="topnav">
         <a class="active" href="../HTML/index2.html">Home</a>
         <a href="newInterview.php">Add Interview</a>
-        <a href="completed.php">Completed Applications</a>
-        <a href="saved.php">Saved Applications</a>
     </div>
 
     <!--This is the application modifying option-->
