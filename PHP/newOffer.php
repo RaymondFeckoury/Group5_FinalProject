@@ -10,17 +10,13 @@
         $workLocation = $_POST['worklocation'];
         $title = $_POST['jobtitle'];
         $comments = $_POST['comments'];
-        if (empty($company)) { // Requires company name
-            echo "<h5>Company name is required.</h5>";
-        } else {
-            // Inserts application info into the database
-            $un = $_SESSION["username"];
-            $query = "INSERT INTO `offers`(`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
-            mysqli_query($conn, $query);
-            // Returns to the completed page
-            header('Location: offers.php');
-            exit();
-        }
+        // Inserts application info into the database
+        $un = $_SESSION["username"];
+        $query = "INSERT INTO `offers`(`company`, `location`, `jobTitle`, `date`, `workLocation`, `comments`, `username`) VALUES ('$company', '$location', '$title', '$date', '$workLocation','$comments', '" . $un . "');";
+        mysqli_query($conn, $query);
+        // Returns to the completed page
+        header('Location: offers.php');
+        exit();
     }
 ?>
 
@@ -29,11 +25,12 @@
 <head>
     <title>Add Applicaton</title>
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+    <script src="../JavaScript/validate.js"></script>
 </head>
 <body>
     <div class="create">
         <h1>Add a New Offer</h1>
-        <form method="post">
+        <form method="post" name="newForm" onsubmit="return validateForm()">
             <div class="name-location-date">
                 <input type="text" placeholder="Company Name" name="company"><br>
                 <input type="text" placeholder="Location (State, City, etc.)" name="location"><br>
@@ -56,7 +53,7 @@
             </div>
             <div class="buttons">
                 <br>
-                <button type="submit">Submit</button>
+                <input type="submit" value="Submit">
                 <input type="reset"><br><br>
             </div>
             <a href="../HTML/index2.html">Return To Home Page</a><br>
