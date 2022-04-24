@@ -28,11 +28,16 @@
                     echo "<h5>Email already exists!</h5>";
                 }
             } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                echo $hash;
+                echo $password;
                 // Inserts account info into the database
-                $query = "INSERT INTO userList VALUES('$username', '$password', '$email', '')";
+                $query = "INSERT INTO userList VALUES('$username', '$hash', '$email')";
                 mysqli_query($conn, $query);
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {
+                    echo $hash;
+                    echo $password;
                     header('Location: ../HTML/index2.html');
                     exit();
                 } else if (isset($_POST['username'])) {

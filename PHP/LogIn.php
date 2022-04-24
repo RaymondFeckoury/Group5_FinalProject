@@ -12,26 +12,33 @@
             echo "<div class=echo><h6>Please fill out all fields.</h6></div>";
         } else {
             // Gets the login info from the database
-            $sql = "SELECT * FROM userList WHERE username='$username' AND password = '$password' LIMIT 1";
+            $sql = "SELECT * FROM userList WHERE username='$username'";
             $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_assoc($result);
+            $users = mysqli_fetch_assoc($result);
         }
 
-        if (!$user) {
+        if (!$users) {
             echo "<h5>Username or password is incorrect.</h5>";         
         } else {
             // If user successfully signs in we redirect to a welcome page
             // again I DONT KNOW HOW THIS WORKS lol but it does
-            if(isset($_SESSION['username'])) {
-                header('Location: ../HTML/index2.html');
-                exit();
-            } else if (isset($_POST['username'])) {
-                $username = $_POST['username'];
-                $_SESSION["username"] = $username;
-                $url = "../HTML/index2.html";
-                header('Location: ../HTML/index2.html');
-                exit();
-            }
+            
+            while($users){
+                $verfiy = password_verify($password, $users["password"]);
+                if ($verfiy){
+                    if(isset($_SESSION['username'])) {
+                        header('Location: ../HTML/index2.html');
+                        exit();
+                    } else if (isset($_POST['username'])) {
+                        $username = $_POST['username'];
+                        $_SESSION["username"] = $username;
+                        $url = "../HTML/index2.html";
+                        header('Location: ../HTML/index2.html');
+                        exit();
+                    }
+                } 
+            } 
+            
         }
     }
 ?>
