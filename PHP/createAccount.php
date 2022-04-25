@@ -14,7 +14,7 @@
             echo "<h5>Password must be more than 6 characters.</h6>";
         } else {
             // Checks for duplicates already in the user list database
-            $checkDuplicate = "SELECT * FROM userList WHERE username='$username' OR email='$email' LIMIT 1";
+            $checkDuplicate = "SELECT * FROM userList WHERE username='$username' AND email='$email' LIMIT 1";
             $result = mysqli_query($conn, $checkDuplicate);
             $user = mysqli_fetch_assoc($result);
             // If a user with the same info already exists
@@ -29,15 +29,11 @@
                 }
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                echo $hash;
-                echo $password;
                 // Inserts account info into the database
-                $query = "INSERT INTO userList VALUES('$username', '$hash', '$email')";
+                $query = "INSERT INTO userList VALUES('$username', '$hash', '$email', '')";
                 mysqli_query($conn, $query);
                 // I DONT KNOW WHAT THE POINT OF THIS IS BUT WE END UP AT LOGGEDIN.HTML (hopefully)
                 if(isset($_SESSION['username'])) {
-                    echo $hash;
-                    echo $password;
                     header('Location: ../HTML/index2.html');
                     exit();
                 } else if (isset($_POST['username'])) {
