@@ -23,22 +23,23 @@
             // If user successfully signs in we redirect to a welcome page
             // again I DONT KNOW HOW THIS WORKS lol but it does
             
-            while($users){
-                $verfiy = password_verify($password, $users["password"]);
-                if ($verfiy){
-                    if(isset($_SESSION['username'])) {
-                        header('Location: ../HTML/index2.html');
-                        exit();
-                    } else if (isset($_POST['username'])) {
-                        $username = $_POST['username'];
-                        $_SESSION["username"] = $username;
-                        $url = "../HTML/index2.html";
-                        header('Location: ../HTML/index2.html');
-                        exit();
-                    }
-                } 
-            } 
-            
+            $verfiy = password_verify($password, $users["password"]);
+            if ($verfiy){
+                if(isset($_SESSION['username'])) {
+                    header('Location: ../HTML/index2.html');
+                    exit();
+                } else if (isset($_POST['username'])) {
+                    $username = $_POST['username'];
+                    $_SESSION["username"] = $username;
+                    $url = "../HTML/index2.html";
+                    header('Location: ../HTML/index2.html');
+                    exit();
+                }
+            } else {
+                echo "<h5>Username or password is incorrect.</h5>";    
+            }
+        
+        
         }
     }
 ?>
