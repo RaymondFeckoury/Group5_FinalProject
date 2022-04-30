@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class = "create">
+<div class="center">
         <h1> Reset Password </h1>
         <p>Please enter the email associated with your account below:</p>
         <form method="post" action="send-recovery-mail.php">
@@ -27,3 +27,4 @@
     </div>
 </body>
 </html>
+
