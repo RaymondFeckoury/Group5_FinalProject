@@ -2,15 +2,36 @@
     require('session.php');
      // If form data has been submitted
      if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $move = $_POST['move'];   
+        // Gathers ranking and username
         $appid = $_POST['appSelect'];
-        // Deletes the rejection specified by the user
-        $query = "DELETE FROM saved WHERE `saved`.`priority` = $appid";
-        mysqli_query($conn, $query);
-        
-        // Returns to the offers page
-        header('Location: saved.php');
-        exit();
+        $un = $_SESSION["username"];
+
+        // Gets all applications with the same priority and username
+        $getAll = "SELECT * FROM `saved` WHERE `saved`.`priority` = '$appid' AND `saved`.`username` = '" . $un . "'";
+        $result = mysqli_query($conn, $getAll);
+
+        // If the user has the same priority ranking for multiple applications
+        if (mysqli_num_rows($result) > 1) {
+            $companyName = $_POST['companySelect'];
+            $location = $_POST['locationSelect'];
+            if (empty($location) || empty($companyName)) {
+                ?>
+                <script>
+                    function myFunction() {
+                        alert("Multiple applications with this application ID exist. Please enter company name and location.");
+                    }
+                    myFunction();
+                </script>
+                <?php
+            } else {
+                $deleterow = "DELETE FROM saved WHERE `saved`.`priority` = '$appid' AND `saved`.`company` = '$companyName' AND `saved`.`location` = '$location' AND `saved`.`username` = '" . $un . "'";
+                mysqli_query($conn, $deleterow);
+            }
+        } else {
+            // Deletes the rejection specified by the user
+            $deletequery = "DELETE FROM saved WHERE `saved`.`priority` = '$appid' AND `saved`.`username` = '" . $un . "'";
+            mysqli_query($conn, $deletequery);
+        }
     }
 ?>
 
@@ -31,9 +52,16 @@
     </div>
     <form method="post">
         <h1>Here are your saved applications:<h1>
-        <label for="appSelect" style="font-size: 18px;">Select saved id to delete:</label>
-        <input type="number" id="appSelect" name="appSelect" min="1" max="500">
-        <input type="submit" value="Delete"><br><br>
+        <h4 style="text-align: center">If Priority Ranking Appears More Than Once:</h4>
+        <div style="text-align: center">            
+            <label for="appSelect">Enter Company Name:</label>
+            <input name="companySelect" type="text" placeholder="Company"><br>
+            <label for="locationSelect">Enter Location:</label>
+            <input name="locationSelect" type="text" placeholder="Location"><br><br>
+            <label for="appSelect">Select priority id to delete:</label>
+            <input type="number" id="appSelect" name="appSelect" min="1" max="500">
+            <input type="submit" value="Delete"><br><br>
+        </div>
     </form>
 </body>
 
@@ -52,6 +80,6 @@
         }
         echo "</table>";
     } else {
-        echo "You currently have 0 saved applications.";
+        echo "<h3 style='text-align:center'>You currently have 0 saved applications.</h3>";
     }
 ?>
