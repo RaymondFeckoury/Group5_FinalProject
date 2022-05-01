@@ -8,7 +8,7 @@
         $companyName = $_POST['appSelect'];
         $un = $_SESSION["username"];
         // Gets the corresponding row the user would like to modify
-        $sql = "SELECT * FROM `completed` WHERE `completed`.`company` = '$companyName'";
+        $sql = "SELECT * FROM `completed` WHERE `completed`.`company` = '$companyName' AND `completed`.`username` = '" . $un . "'";
         $result2 = mysqli_query($conn, $sql);
         $row2 = mysqli_fetch_assoc($result2);
 
@@ -28,14 +28,11 @@
             } else {
                 $newsql = "SELECT * FROM `completed` WHERE `completed`.`company` = '$companyName' AND `completed`.`location` = '$location' AND `completed`.`date` = '$date'";
                 $newresult = mysqli_query($conn, $sql);
-                // Same var name might cause errors
                 $newrow = mysqli_fetch_assoc($newresult);
                 if ($_POST['move'] == 'offers') {
                     // Puts the information from that row into variables to be used in SQL queries
                     $company = $newrow["company"];
-                    $location = $newrow["location"];
                     $jobTitle = $newrow["jobTitle"];
-                    $date = $newrow["date"];
                     $wl = $newrow["workLocation"];
                     $comments = $newrow["comments"];
                     $username = $newrow["username"];
@@ -47,9 +44,7 @@
                 } else if ($_POST['move'] == 'rejections') {
                     // Puts the information from that row into variables to be used in SQL queries
                     $company = $newrow["company"];
-                    $location = $newrow["location"];
                     $jobTitle = $newrow["jobTitle"];
-                    $date = $newrow["date"];
                     $comments = $newrow["comments"];
                     $username = $newrow["username"];
     
@@ -95,7 +90,7 @@
             }
 
             // Deletes the application from completed
-            $query = "DELETE FROM completed WHERE `completed`.`company` = '$companyName'";
+            $query = "DELETE FROM completed WHERE `completed`.`company` = '$companyName' AND `completed`.`username` = '" . $un . "'";
             mysqli_query($conn, $query);
         }
     }
