@@ -98,6 +98,6 @@
         }
         echo "</table>";
     } else {
-        echo "You currently have 0 offers.";
+        echo "<h3 style='text-align:center'>You currently have 0 offers.</h3>";
     }
 ?>
