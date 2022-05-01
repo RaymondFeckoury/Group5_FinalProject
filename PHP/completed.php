@@ -28,7 +28,6 @@
                 <?php
             } else {
                 $newsql = "SELECT * FROM `completed` WHERE `completed`.`company` = '$companyName' AND `completed`.`location` = '$location' AND `completed`.`date` = '$date' AND `completed`.`username` = '" . $un . "'";
-                // Changes here "newsql"
                 $newresult = mysqli_query($conn, $newsql);
                 $newrow = mysqli_fetch_assoc($newresult);
                 if ($_POST['move'] == 'offers') {
@@ -56,7 +55,7 @@
                 }
     
                 // Deletes the application from completed
-                $newquery = "DELETE FROM completed WHERE `completed`.`company` = '$companyName' AND `completed`.`location` = '$location' AND `completed`.`date` = '$date'";
+                $newquery = "DELETE FROM completed WHERE `completed`.`company` = '$companyName' AND `completed`.`location` = '$location' AND `completed`.`date` = '$date' AND `completed`.`username` = '" . $un . "'";
                 mysqli_query($conn, $newquery);
             }
         } else { // If we don't have to prompt the user for the other application information
@@ -82,11 +81,12 @@
                 $company = $row2["company"];
                 $location = $row2["location"];
                 $jobTitle = $row2["jobTitle"];
+                $date = $row2["date"];
                 $comments = $row2["comments"];
                 $username = $row2["username"];
 
                 // Moves the application to rejections
-                $query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$comments', '$username')";
+                $query2 = "INSERT INTO `Rejections` (`company`, `location`, `jobTitle`, `date`, `comments`, `username`) VALUES ('$company', '$location', '$jobTitle', '$date', '$comments', '$username')";
                 mysqli_query($conn, $query2);
 
             }
