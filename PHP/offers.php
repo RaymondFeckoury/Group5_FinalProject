@@ -9,7 +9,7 @@
         $un = $_SESSION["username"];
 
         // Gets the corresponding row the user would like to modify
-        $sql = "SELECT * FROM `offers` WHERE `offers`.`company` = '$companyName' AND `offers`.`username` = $un";
+        $sql = "SELECT * FROM `offers` WHERE `offers`.`company` = '$companyName' AND `offers`.`username` = '" . $un . "'";
         $result2 = mysqli_query($conn, $sql);
         $row2 = mysqli_fetch_assoc($result2);
 
@@ -27,8 +27,8 @@
                 </script>
                 <?php
             } else {
-                $newsql = "SELECT * FROM `offers` WHERE `offers`.`company` = '$companyName' AND `offers`.`location` = '$location' AND `offers`.`date` = '$date'";
-                $newresult = mysqli_query($conn, $sql);
+                $newsql = "SELECT * FROM `offers` WHERE `offers`.`company` = '$companyName' AND `offers`.`location` = '$location' AND `offers`.`date` = '$date' AND `offers`.`username` = '" . $un . "'";
+                $newresult = mysqli_query($conn, $newsql);
                 $newrow = mysqli_fetch_assoc($newresult);
 
                 // Puts the information from that row into variables to be used in SQL queries
@@ -43,8 +43,8 @@
             }
         } 
         else { // If no more info is needed to idenfity the offer to delete
-            $query = "DELETE FROM offers WHERE `offers`.`company` = $companyName AND `offers`.`username` = $un";
-            mysqli_query($conn, $query);
+            $query2 = "DELETE FROM offers WHERE `offers`.`company` = '$companyName' AND `offers`.`username` = '" . $un . "'";
+            mysqli_query($conn, $query2);
         }
     }
 ?>
