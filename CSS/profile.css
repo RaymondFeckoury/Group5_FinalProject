@@ -28,3 +28,13 @@ button.mybutton.navbar-toggler {
     color:white;
 }
 
+.form{
+    height: 100px;
+    width:auto;
+    padding-top: 100px;
+    margin: 100px;
+    border: 10px black
+}
+input[type="password"]{
+    margin-bottom: 10px;
+}
