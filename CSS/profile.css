@@ -12,12 +12,19 @@
 }
 .navbar a:hover {
     background-color: #ddd;
+    padding: 16px 14px;
     color: black;
 }
   
 .navbar a.active {
     color: white;
     
+}
+.navbar-h1 a{
+    font-size: 25px;
+}
+.nav-item{
+    margin-left: 15px;
 }
 
 .navbar .navbar-collapse .collapse .show{
@@ -28,13 +35,28 @@ button.mybutton.navbar-toggler {
     color:white;
 }
 
-.form{
+#form{
     height: 100px;
     width:auto;
     padding-top: 100px;
     margin: 100px;
-    border: 10px black
+}
+.iform{
+    border: 2px black solid ;
+    padding:10px;
+    align-content: center;
 }
 input[type="password"]{
     margin-bottom: 10px;
+}
+
+.mess{
+    text-align: center;
+}
+.fail{
+    color: red;
+}
+
+.success{
+    color:green;
 }
