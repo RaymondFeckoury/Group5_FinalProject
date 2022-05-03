@@ -61,27 +61,37 @@
 </head>
 
 <body>
-    <div class = "create">
-        <h1>Create an account</h1>
-        <p>Let's Get Started!<p>
-        <form method="post">
-            <div>
-                <input type="text" placeholder="Username" name ="username" required>
-            </div>
-            <div>
-                <input type="email" placeholder="Email" name ="email" required>
-            </div>
-            <div>
-                <input type="password" placeholder="Password" name ="password" required>
-            </div>
-            <div>
-                <button type="submit">Submit</button>
-                <button>Learn More</button>
-            </div>
-            <div>
-                <p> Have an account? Log in <a href="LogIn.php">here</a>.</p>
-            </div>
-        </form>
+<div class="center">
+      <h1>Create an Account</h1>
+      <form method="post">
+        <div class="txt_field">
+    
+            
+          <input type="text" required name="username" required>
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" required name="email" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required name="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <div class="pass">
     </div>
+        <input type="submit" value="Create an Account">
+        <div class="signup_link">
+          <p> Already have an account? <a href="LogIn.php">Login</a> </p>
+          <a href="../HTML/index.html">Return To Home Page</a>
+        </div>
+      </form>
+    </div>
+    
+    
 </body>
+
 </html>
