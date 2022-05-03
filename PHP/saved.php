@@ -74,7 +74,7 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // Table headers
-        echo "<table style='font-size: 15px;'><tr><th>Priority Ranking</th><th>Company</th><th>Location</th><th>Job Title</th><th>Date</th><th>Work Style</th><th>Comments</th></tr>";
+        echo "<table style='font-size: 15px;'><tr><th>Priority Ranking</th><th>Company</th><th>Location</th><th>Job Title</th><th>Deadline</th><th>Work Style</th><th>Comments</th></tr>";
         // Puts all results of the sql query into the table
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr><td>" . $row["priority"]. "</td><td>" . $row["company"]. "</td><td>" . $row["location"] . "</td><td>" . $row["jobTitle"] . "</td><td>" . $row["date"] . "</td><td>" . $row["workLocation"] . "</td><td>" . $row["comments"] . "</td></tr>";
