@@ -88,13 +88,5 @@
         </div>
       </form>
     </div>
-<<<<<<< HEAD
 </body>
-=======
-    
-    
-
-</body>
-
-
->>>>>>> ashwin
+</html>
