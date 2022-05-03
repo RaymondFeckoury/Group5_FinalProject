@@ -66,7 +66,11 @@
             <input name="locationSelect" type="text" placeholder="Location"><br>
             <label for="dateSelect">Select Date:</label>
             <input type="date" id="date" name="dateSelect"><br><br>
+<<<<<<< HEAD
             <input type="submit" value="Remove Interview"><br><br>
+=======
+            <input type="submit" value="Submit Changes"><br><br>
+>>>>>>> ashwin
         </div>
     </form>
 

@@ -63,3 +63,16 @@
         }
     }
 ?>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Log In </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+</head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>

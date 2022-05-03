@@ -32,6 +32,7 @@
                     $username = $_POST['username'];
                     $_SESSION["username"] = $username;
                     $url = "../HTML/index2.html";
+
                     header('Location: ../HTML/index2.html');
                     exit();
                 }
@@ -46,35 +47,46 @@
 
 <!--HTML page layout-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Log In/Create Account</title>
+    <title>Log In </title>
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
 </head>
 
 <body>
-    <div class = "create">
-        <h1> Log In </h1>
-        <p>Welcome!</p>
-        <form method="post">
-            <div>
-                <input type="text" placeholder="Username" name="username" required>
-            </div>
-            <div>
-                <input type="password" placeholder="Password" name="password" required>
-            </div>
-            <div>
-                <button type="submit">Submit</button><br><br>
-                <a class="forgotLink" href="forgotPassword.php">Forgot Password?</a>
-                <p> New to the site? Register <a href="createAccount.php">here</a>.</p>
-                <a href="../HTML/index.html">Return To Home Page</a>
-            </div>
-        </form>
+
+
+<div class="center">
+      <h1>Login</h1>
+      <form method="post">
+        <div class="txt_field">
+    
+            
+          <input type="text" required name="username" required>
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <div class="pass">
+        <a href="forgotPassword.php">Forgot Password?</a> 
     </div>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+          <p> New to the site? <a href="createAccount.php">Signup</a> </p>
+          <a href="../HTML/index.html">Return To Home Page</a>
+        </div>
+      </form>
+    </div>
+    
+    
 </body>
 </html>
