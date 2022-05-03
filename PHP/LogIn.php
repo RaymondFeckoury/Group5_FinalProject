@@ -59,7 +59,7 @@
 </head>
 
 <body>
-<h1> Application Organizer! </h1>
+
 
 <div class="center">
       <h1>Login</h1>

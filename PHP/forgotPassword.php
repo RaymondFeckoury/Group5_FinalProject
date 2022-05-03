@@ -9,20 +9,29 @@
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
     <title>Forgot Password</title>
 </head>
-<body>
-    <div class = "create">
-        <h1> Reset Password </h1>
-        <p>Please enter the email associated with your account below:</p>
-        <form method="post" action="send-recovery-mail.php">
-            <div>
-                <input type="email" placeholder="Email" name="email" required>
-            </div>
-            <br>
-            <div>
-                <input type="submit" value="Send Recovery Email"><br><br>
-                <a href="LogIn.php">Back to Login</a>
-            </div>
-        </form>
+
+
+
+<div class="center">
+      <h1>Forgot Password</h1>
+      <br><p> Please enter the email associated with your account below:</p>
+
+      <form method="post" action="send-recovery-mail.php">
+        <div class="txt_field">
+    
+        <input type="email" required name="email" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        
+        
+        <input type="submit" value="Send Recovery Email">
+        <div class="signup_link">
+          <a href="../PHP/LogIn.php">Return To The Login Page</a>
+        </div>
+      </form>
     </div>
+    
+    
 </body>
 </html>

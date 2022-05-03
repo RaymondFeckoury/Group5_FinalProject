@@ -28,33 +28,57 @@
 <html lang="en">
 <head>
     <title>Add Interview</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/login2.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
 </head>
-<body>
-    <div class="create">
-        <h1>Add a New Interview</h1>
-        <form method="post">
-            <div class="name-location-date">
-                <input type="text" placeholder="Company Name" name="company"><br>
-                <input type="text" placeholder="Location (State, City, etc.)" name="location"><br>
-                <input type="text" placeholder="Job Title" name="jobtitle">
-            </div>
-            <div class="style-title">
-                <label for="date">Interview Date:</label>
-                <input type="date" id="date" name="date"><br>
-            </div>
-            <div class="comments">
-                <hr>
-                <input type="text" placeholder="Comments" name="comments"><br>
-            </div>
-            <div class="buttons">
-                <br>
-                <button type="submit">Submit</button>
-                <input type="reset"><br><br>
-            </div>
-            <a href="../HTML/index2.html">Return To Home Page</a><br>
-        </form>
-    </div>
-</body>
+
 
 </html>
+
+<div class="center">
+      <h1>Add a New Interview</h1>
+      <form method="post">
+        <div class="txt_field">
+    
+            
+          <input type="text" required name="company" required>
+          <span></span>
+          <label>Company Name</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" name="location" required>
+          <span></span>
+          <label>Location (State, City, etc.)</label>
+        </div>
+        <div class="txt_field">
+    
+            
+          <input type="text" required name="jobtitle" required>
+          <span></span>
+          <label>Job Title</label>
+        </div>
+
+        <div class="txt_field">
+    
+            
+          <input type="date" id="date" required name="date" required>
+          <span></span>
+          <label></label>
+        </div>
+
+        
+        <div class="txt_field">
+    
+            
+    <input type="text" required name="comments" required>
+    <span></span>
+    <label>Comments</label>
+  </div>
+        
+        <input type="submit" value="Submit">
+         
+        <div class="signup_link">
+          <p> Click here to <input type="reset" value="Reset"> <br><br>
+          <a href="../HTML/index2.html">Return To Home Page</a>
+        </div>
+      </form>
+    </div>

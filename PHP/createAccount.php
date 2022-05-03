@@ -72,7 +72,7 @@
           <label>Username</label>
         </div>
         <div class="txt_field">
-          <input type="text" required name="email" required>
+          <input type="email" required name="email" required>
           <span></span>
           <label>Email</label>
         </div>
