@@ -9,9 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
     <title>Forgot Password</title>
 </head>
-
 <body>
-<div class="center">
+    <div class = "create">
         <h1> Reset Password </h1>
         <p>Please enter the email associated with your account below:</p>
         <form method="post" action="send-recovery-mail.php">
@@ -27,4 +26,3 @@
     </div>
 </body>
 </html>
-

@@ -32,6 +32,7 @@
                     $username = $_POST['username'];
                     $_SESSION["username"] = $username;
                     $url = "../HTML/index2.html";
+
                     header('Location: ../HTML/index2.html');
                     exit();
                 }
@@ -58,6 +59,8 @@
 </head>
 
 <body>
+<h1> Application Organizer! </h1>
+
 <div class="center">
       <h1>Login</h1>
       <form method="post">

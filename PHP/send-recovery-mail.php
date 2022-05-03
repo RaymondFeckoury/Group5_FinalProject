@@ -57,9 +57,23 @@
         
             $mail->send();
             echo '<h1 style="text-align:center;">A link to reset password has been sent to your email<h1>';
-            echo '<a style="text-align:center;" href="../HTML/index.html">Return To Home Page</a>';
+            echo '<a style="text-align:center;" href="LogIn.php">Return To Login Page</a>';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 ?>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Log In </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+</head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>

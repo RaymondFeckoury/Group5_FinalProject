@@ -28,7 +28,7 @@
 <html lang="en">
 <head>
     <title>Add Interview</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/login2.css">
 </head>
 <body>
     <div class="create">
