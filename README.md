@@ -1,3 +1,5 @@
+## PLEASE NOTE: For a more detailed explanation including images, please see the user guide in the documentation folder.
+
 # Group5_FinalProject
 
 This website serves as a tool to help people track their job or internship applications. The site contains a page to track completed applications, applications they would like to apply to, upcoming interviews, pending offers, and rejections. Users can move applications from the completed page to the rejections or offers page, and each page has the option to add more applications. 
@@ -14,7 +16,7 @@ XAMPP can be downloaded from the official Apache Friends website using the follo
 
 This tutorial will use version 7.4.29 for OSX, however similar steps can be used on other operating systems. XAMPP makes the installation process intuitive through their tutorials. After downloading has been completed, open the application and start all of the servers. 
 
-> Step 3 - Copy Source Code folder into htdocs:
+> Step 2 - Copy Source Code folder into htdocs:
 
 HTDOCS is where all programs for web pages that are being developed with XAMPP are stored.
 Navigate to the github repository with this link: https://github.com/RaymondFeckoury/Group5_FinalProject
@@ -28,7 +30,7 @@ Move this zip file into your htdocs directory.
 
 In your htdocs directory, you should now see a folder titled “Group5_FinalProject” containing all of the source code.
 
-> Step 4 - Setting up the database:
+> Step 3 - Setting up the database:
 
 Enter this command in phpmyadmin to create the database:
 
@@ -178,9 +180,62 @@ INSERT INTO `userlist` (`username`, `password`, `email`, `reset_token`) VALUES
 COMMIT;
 
 ## The database is now seeded with data that demonstrates the site's functionality.
+
+> Opening Application Organizer:
+
+In XAMPP, click “go to application,” and replace the URL with localhost/Group5_FinalProject. Please note that this URL may change in response to the port being used.
+
+From this URL, click "source code," then "HTML," and then you will see our landing page. 
+
 ## Log in with the following account information:
 
 ## Username: user1, Password: password123
+
+# Functionality:
+
+> Account Functionality:
+
+Create a new account with username, email, password.
+Email a link to reset password if the user forgets their login information. 
+Reset password once logged in.
+
+> Security/Validation:
+
+Passwords are hashed.
+All forms are validated using PHP and/or JavaScript. 
+Passwords have a minimum length requirement. 
+Session variables are used to track the user.
+
+> Site features:
+
+Save applications you would like to apply to in the future along with the deadline and a priority field that the user enters.
+Add and view completed applications.
+Move applications from completed to accepted or rejected.
+Save upcoming interviews along with their respective dates.
+
+# Operating Systems and browsers
+
+> Operating Systems:
+
+Mac OSX
+Windows
+
+> Browsers:
+
+Safari
+Chrome
+
+# Libraries and frameworks
+
+Application Organizer was created using HTML, CSS, Bootstrap, Google Font API, vanilla JavaScript, PHP, and MySQL.
+
+# Starter code
+
+No starter code was used, all source code is available at the github repository.
+
+# Directory structure
+
+An image is provided in the user guide.
 
 
 
